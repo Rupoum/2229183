@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import { useData } from "../context/DataContext"
-import PostCard from "../components/PostCard"
-import { RefreshCw } from "lucide-react"
+import { useData } from "../context/DataContext";
+import PostCard from "../components/PostCard";
+import { RefreshCw } from "lucide-react";
 
 const Feed = () => {
-  const { posts, loading, refreshFeed } = useData()
+  const { posts, loading, refreshFeed } = useData();
 
   const handleRefresh = () => {
-    refreshFeed()
-  }
+    refreshFeed();
+  };
 
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
       </div>
-    )
+    );
   }
 
   return (
@@ -38,8 +38,7 @@ const Feed = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Feed
-
+export default Feed;

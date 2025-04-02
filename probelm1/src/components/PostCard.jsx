@@ -1,30 +1,32 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useData } from "../context/DataContext"
-import { MessageCircle, Heart, Share2 } from "lucide-react"
+import { useState } from "react";
+import { useData } from "../context/DataContext";
+import { MessageCircle, Heart, Share2 } from "lucide-react";
 
 const PostCard = ({ post }) => {
-  const { comments } = useData()
-  const [showComments, setShowComments] = useState(false)
-  const [liked, setLiked] = useState(false)
+  const { comments } = useData();
+  const [showComments, setShowComments] = useState(false);
+  const [liked, setLiked] = useState(false);
 
-  const postComments = comments[post.id] || []
+  const postComments = comments[post.id] || [];
 
   const toggleComments = () => {
-    setShowComments(!showComments)
-  }
+    setShowComments(!showComments);
+  };
 
   const toggleLike = () => {
-    setLiked(!liked)
-  }
+    setLiked(!liked);
+  };
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
       <div className="p-4">
         <div className="flex items-center mb-4">
           <img
-            src={`https://source.unsplash.com/random/100x100?face&sig=${post.userid}`}
+            src={
+              "https://st4.depositphotos.com/7752738/38185/v/1600/depositphotos_381852360-stock-illustration-user-profile-or-my-account.jpg"
+            }
             alt={post.userName}
             className="w-10 h-10 rounded-full mr-3"
           />
@@ -44,21 +46,11 @@ const PostCard = ({ post }) => {
 
         <div className="flex justify-between items-center mt-4 pt-3 border-t border-gray-100">
           <button
-            onClick={toggleLike}
-            className={`flex items-center gap-1 ${liked ? "text-red-500" : "text-gray-500"} hover:text-red-500`}
+            onClick={toggleComments}
+            className="flex items-center gap-1 text-gray-500 hover:text-blue-500"
           >
-            <Heart size={18} fill={liked ? "currentColor" : "none"} />
-            <span>{liked ? "Liked" : "Like"}</span>
-          </button>
-
-          <button onClick={toggleComments} className="flex items-center gap-1 text-gray-500 hover:text-blue-500">
             <MessageCircle size={18} />
             <span>{post.commentCount} Comments</span>
-          </button>
-
-          <button className="flex items-center gap-1 text-gray-500 hover:text-green-500">
-            <Share2 size={18} />
-            <span>Share</span>
           </button>
         </div>
       </div>
@@ -83,8 +75,7 @@ const PostCard = ({ post }) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default PostCard
-
+export default PostCard;
