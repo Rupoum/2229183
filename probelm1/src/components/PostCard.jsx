@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { useData } from "../context/DataContext";
 import { MessageCircle, Heart, Share2 } from "lucide-react";
@@ -15,9 +13,9 @@ const PostCard = ({ post }) => {
     setShowComments(!showComments);
   };
 
-  const toggleLike = () => {
-    setLiked(!liked);
-  };
+  // const toggleLike = () => {
+  //   setLiked(!liked);
+  // };
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">

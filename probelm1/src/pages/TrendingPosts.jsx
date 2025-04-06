@@ -1,16 +1,27 @@
-import { useData } from "../context/DataContext"
-import PostCard from "../components/PostCard"
-import { TrendingUp } from "lucide-react"
+import { useData } from "../context/DataContext";
+import PostCard from "../components/PostCard";
+import { TrendingUp } from "lucide-react";
 
 const TrendingPosts = () => {
-  const { trendingPosts, loading } = useData()
+  // const { trendingPosts, loading } = useData();
 
+  const trendingPosts = [
+    {
+      id: 1,
+      userName: "Alic",
+      content: "Exploring",
+      commentCount: 15,
+      imageUrl: "vjbhbnklkm",
+    },
+  ];
+
+  const loading = false;
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
       </div>
-    )
+    );
   }
 
   return (
@@ -35,8 +46,7 @@ const TrendingPosts = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TrendingPosts
-
+export default TrendingPosts;

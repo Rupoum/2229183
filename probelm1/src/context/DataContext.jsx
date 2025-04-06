@@ -1,5 +1,3 @@
-"use client";
-
 import { createContext, useState, useEffect, useContext } from "react";
 
 const DataContext = createContext();
@@ -14,7 +12,6 @@ export const DataProvider = ({ children }) => {
   const [topUsers, setTopUsers] = useState([]);
   const [trendingPosts, setTrendingPosts] = useState([]);
 
-  // Fetch all users
   const fetchUsers = async () => {
     try {
       const response = await fetch(
@@ -29,7 +26,6 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  // Fetch posts for a specific user
   const fetchUserPosts = async (userId) => {
     try {
       const response = await fetch(
@@ -43,7 +39,6 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  // Fetch comments for a specific post
   const fetchPostComments = async (postId) => {
     try {
       const response = await fetch(
@@ -57,23 +52,18 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  // Initialize data
   const initializeData = async () => {
     setLoading(true);
 
-    // Fetch all users
     const usersData = await fetchUsers();
 
-    // Track post counts for each user
     const userPostCounts = {};
     let allPosts = [];
 
-    // Fetch posts for each user
     for (const userId in usersData) {
       const userPosts = await fetchUserPosts(userId);
       userPostCounts[userId] = userPosts.length;
 
-      // Add user info to each post
       const postsWithUserInfo = userPosts.map((post) => ({
         ...post,
         userName: usersData[post.userid],
@@ -116,7 +106,6 @@ export const DataProvider = ({ children }) => {
   };
 
   const refreshFeed = async () => {
-    //fetching new data
     const updatedPosts = [];
 
     for (const userId in users) {

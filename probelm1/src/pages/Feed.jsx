@@ -1,5 +1,3 @@
-"use client";
-
 import { useData } from "../context/DataContext";
 import PostCard from "../components/PostCard";
 import { RefreshCw } from "lucide-react";
@@ -7,6 +5,7 @@ import { RefreshCw } from "lucide-react";
 const Feed = () => {
   const { posts, loading, refreshFeed } = useData();
 
+  // const loading = false;
   const handleRefresh = () => {
     refreshFeed();
   };
