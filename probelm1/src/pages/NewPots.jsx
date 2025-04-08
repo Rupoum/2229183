@@ -2,7 +2,7 @@ import { useData } from "../context/DataContext";
 import PostCard from "../components/PostCard";
 import { TrendingUp } from "lucide-react";
 
-const TrendingPosts = () => {
+const NewPosts = () => {
   // const { trendingPosts, loading } = useData();
 
   const trendingPosts = [
@@ -50,4 +50,4 @@ const TrendingPosts = () => {
   );
 };
 
-export default TrendingPosts;
+export default NewPosts;
