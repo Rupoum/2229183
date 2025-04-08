@@ -15,6 +15,7 @@ const TrendingPosts = () => {
     },
   ];
 
+  //loading
   const loading = false;
   if (loading) {
     return (
